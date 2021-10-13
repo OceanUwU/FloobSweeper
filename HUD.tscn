@@ -1,0 +1,136 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Button.gd" type="Script" id=1]
+[ext_resource path="res://assets/buttonhover.png" type="Texture" id=2]
+[ext_resource path="res://assets/button.png" type="Texture" id=3]
+[ext_resource path="res://assets/buttonactive.png" type="Texture" id=4]
+[ext_resource path="res://assets/flag.png" type="Texture" id=5]
+[ext_resource path="res://assets/sweepicon.png" type="Texture" id=6]
+[ext_resource path="res://HUD.gd" type="Script" id=7]
+[ext_resource path="res://icon.png" type="Texture" id=8]
+[ext_resource path="res://assets/RobotoMono-Regular.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=1]
+size = 180
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 200
+font_data = ExtResource( 9 )
+
+[node name="HUD" type="Control"]
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SweepButton" type="TextureButton" parent="."]
+margin_left = 213.84
+margin_right = 469.84
+margin_bottom = 256.0
+rect_scale = Vector2( 0.234, 0.234 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="SweepButton"]
+margin_left = -14.0
+margin_top = 9.0
+margin_right = 86.0
+margin_bottom = 109.0
+rect_scale = Vector2( 2.56, 2.56 )
+mouse_filter = 2
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Remaining" type="Label" parent="SweepButton"]
+margin_left = -334.705
+margin_top = 12.705
+margin_right = -10.7054
+margin_bottom = 277.705
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "384"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FlagButton" type="TextureButton" parent="."]
+margin_right = 256.0
+margin_bottom = 256.0
+rect_scale = Vector2( 0.234, 0.234 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 2 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Icon" type="TextureRect" parent="FlagButton"]
+margin_left = -121.686
+margin_top = -114.838
+margin_right = -21.6856
+margin_bottom = -14.8384
+rect_scale = Vector2( 5, 5 )
+mouse_filter = 2
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Remaining" type="Label" parent="FlagButton"]
+margin_left = 261.728
+margin_top = 12.7053
+margin_right = 501.728
+margin_bottom = 277.705
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "98"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="TextureRect" parent="."]
+margin_left = 420.0
+margin_right = 920.0
+margin_bottom = 500.0
+rect_scale = Vector2( 0.12, 0.12 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Timer"]
+margin_left = 250.0
+margin_top = 265.0
+margin_right = 270.0
+margin_bottom = 385.0
+rect_rotation = 180.0
+rect_pivot_offset = Vector2( 10, 0 )
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Time" type="Label" parent="Timer"]
+margin_left = -969.408
+margin_top = 123.233
+margin_right = -9.4082
+margin_bottom = 388.233
+custom_fonts/font = SubResource( 2 )
+text = "400000.1"
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="onned" from="SweepButton" to="." method="_on_SweepButton_onned"]
+[connection signal="onned" from="FlagButton" to="." method="_on_FlagButton_onned"]

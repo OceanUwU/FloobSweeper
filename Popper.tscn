@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/unopenedactive.png" type="Texture" id=1]
+[ext_resource path="res://Popper.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[node name="Popper" type="RigidBody2D"]
+z_index = 5
+gravity_scale = 22.11
+linear_velocity = Vector2( 0, -1100 )
+angular_velocity = -2.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 50, 50 )
+scale = Vector2( 0.5, 0.5 )
+shape = SubResource( 1 )
+
+[node name="Tween" type="Tween" parent="."]

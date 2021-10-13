@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Grid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Camera2D.gd" type="Script" id=2]
+[ext_resource path="res://Main.gd" type="Script" id=3]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
+[ext_resource path="res://EndScreen.tscn" type="PackedScene" id=5]
+
+[node name="Main" type="Node"]
+script = ExtResource( 3 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -425.736
+margin_top = -183.138
+margin_right = 1039.26
+margin_bottom = 820.862
+color = Color( 0.0745098, 0.0745098, 0.0745098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 60 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 240, 270 )
+current = true
+script = ExtResource( 2 )
+
+[node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="EndScreen" parent="." instance=ExtResource( 5 )]
+
+[connection signal="flag" from="Grid" to="." method="_on_Grid_flag"]
+[connection signal="game_over" from="Grid" to="." method="_on_Grid_game_over"]
+[connection signal="uncover" from="Grid" to="." method="_on_Grid_uncover"]
+[connection signal="set_mode" from="HUD" to="." method="_on_HUD_set_mode"]
